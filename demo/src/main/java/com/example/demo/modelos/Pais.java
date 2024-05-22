@@ -9,7 +9,7 @@ public class Pais {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_Pais;
 
-    @Column(name = "Nombre Pais",nullable = false, length = 50)
+    @Column(name = "NombrePais",nullable = false, length = 50)
     private String nombrepais;
 
     public Pais() {

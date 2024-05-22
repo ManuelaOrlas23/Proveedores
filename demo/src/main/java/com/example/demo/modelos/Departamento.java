@@ -12,6 +12,14 @@ public class Departamento {
     @Column(name = "nombreDepartamento",nullable = false,length = 50)
     private String nombreDepartamento;
 
+    public Departamento() {
+    }
+
+    public Departamento(Integer id_Departamento, String nombreDepartamento) {
+        this.id_Departamento = id_Departamento;
+        this.nombreDepartamento = nombreDepartamento;
+    }
+
     public Integer getId_Departamento() {
         return id_Departamento;
     }

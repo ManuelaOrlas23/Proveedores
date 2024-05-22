@@ -20,27 +20,28 @@ public class ProveedorServicio {
 
     public Proveedor guardarProveedor(Proveedor datosProveedor)throws Exception {
         try {
-            if (validacionProveedor.validarTipoPersona(datosProveedor.getTipoPersona())){
+            if (!validacionProveedor.validarTipoPersona(datosProveedor.getTipoPersona())){
                 throw new Exception("Tipo persona invalida, Revise por favor");
             }
-            if (validacionProveedor.validarNit(datosProveedor.getNit())){
+            if (!validacionProveedor.validarNit(datosProveedor.getNit())){
                 throw new Exception("Nit invalido, Revise por favor");
             }
-            if (validacionProveedor.validarNombreRazonSocial(datosProveedor.getNombreRazonSocial())){
+            if (!validacionProveedor.validarNombreRazonSocial(datosProveedor.getNombreRazonSocial())){
                 throw new Exception("Razon social invalida, revise por favor");
             }
-            if (validacionProveedor.validarTelefono(datosProveedor.getTelefono())){
+            if (!validacionProveedor.validarTelefono(datosProveedor.getTelefono())){
                 throw new Exception("Telefono invalido, Revise por favor");
             }
-            if (validacionProveedor.validarCorreo(datosProveedor.getCorreo())){
+            if (!validacionProveedor.validarCorreo(datosProveedor.getCorreo())){
                 throw new Exception("Correo invalido, Revise por favor");
             }
-            if (validacionProveedor.validarRepresentanteLegal(datosProveedor.getRepresentanteLegal())){
+            if (!validacionProveedor.validarRepresentanteLegal(datosProveedor.getRepresentanteLegal())){
                 throw new Exception("Representante legal invalido, Revise por favor");
             }
-            if (validacionProveedor.validarDireccion(datosProveedor.getDireccion())){
+            if (!validacionProveedor.validarDireccion(datosProveedor.getDireccion())){
                 throw new Exception("Direccion invalida, Revise por favor");
             }
+
             return proveedorRepositorio.save(datosProveedor);
 
         } catch (Exception error) {
@@ -48,10 +49,10 @@ public class ProveedorServicio {
         }
     }
 
-    public Proveedor buscarProovedorPorId(Integer idUsuario)throws Exception{
+    public Proveedor buscarProovedorPorId(Integer id_usuario)throws Exception{
         try {
-            if (proveedorRepositorio.findById(idUsuario).isPresent()){
-                return proveedorRepositorio.findById(idUsuario).get();
+            if (proveedorRepositorio.findById(id_usuario).isPresent()){
+                return proveedorRepositorio.findById(id_usuario).get();
             }else {
                 throw new Exception("Proveedor no encontrado");
             }

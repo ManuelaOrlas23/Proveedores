@@ -9,8 +9,16 @@ public class Ciudad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_Ciudad;
 
-    @Column(name = "Nombre Ciudad",nullable = false,length = 50)
+    @Column(name = "NombreCiudad",nullable = false,length = 50)
     private String nombreCiudad;
+
+    public Ciudad() {
+    }
+
+    public Ciudad(Integer id_Ciudad, String nombreCiudad) {
+        this.id_Ciudad = id_Ciudad;
+        this.nombreCiudad = nombreCiudad;
+    }
 
     public Integer getId_Ciudad() {
         return id_Ciudad;

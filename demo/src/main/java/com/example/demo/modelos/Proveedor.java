@@ -10,13 +10,13 @@ public class Proveedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_usuario;
 
-    @Column(name = "Tipo persona", nullable = false, length = 50)
+    @Column(name = "TipoPersona", nullable = false, length = 50)
     private String tipoPersona;
-    @Column(name = "Nit-RUT",nullable = false,length = 60)
+    @Column(name = "Nit",nullable = false,length = 60)
     private String nit;
-    @Column(name = "Nombre Razón Social",nullable = false,length = 50)
+    @Column(name = "NombreRazónSocial",nullable = false,length = 50)
     private String nombreRazonSocial;
-    @Column(name = "Representante Legal",nullable = false,length = 50)
+    @Column(name = "RepresentanteLegal",nullable = false,length = 50)
     private String representanteLegal;
     @Column(name = "Telefono",nullable = false,length = 30)
     private String telefono;
@@ -26,23 +26,23 @@ public class Proveedor {
     private String direccion;
 
     @ManyToOne
-    @JoinColumn(name = "id_Pais",nullable = false)
+    @JoinColumn(name = "id_Pais",nullable = true)
     private Pais pais;
 
     @ManyToOne
-    @JoinColumn(name = "id_Departamento",nullable = false)
+    @JoinColumn(name = "id_Departamento",nullable = true)
     private Departamento departamento;
 
     @ManyToOne
-    @JoinColumn(name = "id_Ciudad",nullable = false)
+    @JoinColumn(name = "id_Ciudad",nullable = true)
     private Ciudad ciudad;
 
     public Proveedor() {
     }
 
-    public Proveedor(Integer id_usuario, String personeriaJuridica, String nit, String nombreRazonSocial, String representanteLegal, String telefono, String correo, String direccion) {
+    public Proveedor(Integer id_usuario, String tipoPersona, String nit, String nombreRazonSocial, String representanteLegal, String telefono, String correo, String direccion) {
         this.id_usuario = id_usuario;
-        this.tipoPersona = personeriaJuridica;
+        this.tipoPersona = tipoPersona;
         this.nit = nit;
         this.nombreRazonSocial = nombreRazonSocial;
         this.representanteLegal = representanteLegal;
@@ -114,4 +114,8 @@ public class Proveedor {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+
+
+
 }

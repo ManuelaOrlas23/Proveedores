@@ -19,10 +19,10 @@ public class CiudadServicio {
 
     public Ciudad guardarCiudad(Ciudad datosCiudad) throws Exception{
         try {
-            if (!validacionCiudad.validarCiudad(datosCiudad.getNombreCiudad())){
-                throw new Exception("Ciudad invalido, Revise por favor");
+            if (validacionCiudad.validarCiudad(datosCiudad.getNombreCiudad())) {
+                return ciudadRepositorio.save(datosCiudad);
             }
-            return ciudadRepositorio.save(datosCiudad);
+            throw new Exception("Ciudad invalida, Revise por favor");
         }catch (Exception error){
             throw new Exception(error.getMessage());
         }
